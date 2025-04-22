@@ -30,7 +30,7 @@ public final class DependencyContainer: IDependencyContainer {
     // MARK: - Properties
     private var services: [ObjectIdentifier: () -> Any] = [:]
     private var singletons: [ObjectIdentifier: Any] = [:]
-    static let shared = DependencyContainer()
+    public static let shared = DependencyContainer()
 
     // MARK: - Initializer
     private init() {}
