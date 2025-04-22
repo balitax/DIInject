@@ -28,7 +28,7 @@
 import Foundation
 
 @propertyWrapper
-spublic struct DIInject<T> {
+public struct DIInject<T> {
     private let resolvedValue: T
     
     public init() {
