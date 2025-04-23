@@ -17,7 +17,7 @@ To add DIInject to your project using Swift Package Manager, add the following d
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/balitax/DIInject.git", from: "1.0.0")
+    .package(url: "https://github.com/balitax/DIInject.git", from: "1.0.3")
 ]
 ```
 
@@ -26,7 +26,7 @@ Then, include `"DIInject"` as a dependency for your target:
 ```swift
 targets: [
     .target(
-        name: "YourTargetName",
+        name: "DIInjectExample",
         dependencies: ["DIInject"]
     )
 ]
@@ -36,35 +36,26 @@ targets: [
 
 Here's a quick example of how to use DIInject in your project:
 
-```javascript
-import { Container } from 'diinject';
+```swift
+import DIInject
 
-// Define a service
-class Logger {
-  log(message) {
-    console.log(message);
-  }
+// Register service to AppServiceProvider
+class AppServiceProvider: IServiceProvider {
+    func registerDependencies() {
+        let container = DependencyContainer.shared
+
+        // Register services with specific scopes
+        container.register(NetworkServiceProtocol.self, scope: .transient) { NetworkService() }
+        container.register(LoggerServiceProtocol.self, scope: .singleton) { LoggerService.shared }
+    }
 }
 
-// Define a class with dependencies
-class App {
-  constructor(logger) {
-    this.logger = logger;
-  }
+// Call AppServiceProvider to AppDelegate or other relevant classes
+let provider = AppServiceProvider()
+provider.registerDependencies()
 
-  run() {
-    this.logger.log('App is running');
-  }
-}
-
-// Create a container and register services
-const container = new Container();
-container.register('logger', Logger);
-container.register('app', App, ['logger']);
-
-// Resolve and use the app
-const app = container.resolve('app');
-app.run();
+// Call dependency to ViewModel or Controller
+@DIInject private var service: NetworkServiceProtocol
 ```
 
 ## Contributing
