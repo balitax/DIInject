@@ -58,6 +58,10 @@ provider.registerDependencies()
 @DIInject private var service: NetworkServiceProtocol
 ```
 
+## Usage Example
+
+You can see usage example on this repository link [DIInjectExample](https://github.com/balitax/DIInjectExample)
+
 ## Contributing
 
 We welcome contributions to DIInject! If you have suggestions, bug reports, or pull requests, please feel free to submit them on our [GitHub repository](https://github.com/balitax/DIInject).
