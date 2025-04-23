@@ -27,6 +27,7 @@
 import Foundation
 
 public final class DependencyContainer: IDependencyContainer {
+
     // MARK: - Properties
     private var services: [ObjectIdentifier: () -> Any] = [:]
     private var singletons: [ObjectIdentifier: Any] = [:]
@@ -77,3 +78,6 @@ extension DependencyContainer {
         register(T.self, scope: scope, factory: factory)
     }
 }
+
+// MARK: - Thread Safe Sendable
+extension DependencyContainer: @unchecked Sendable { }
