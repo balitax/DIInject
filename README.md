@@ -64,7 +64,7 @@ We welcome contributions to DIInject! If you have suggestions, bug reports, or p
 
 ## License
 
-DIInject is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+DIInject is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for more information.
 
 ## Contact
 
